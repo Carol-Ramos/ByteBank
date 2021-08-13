@@ -30,8 +30,6 @@ namespace ByteBank.SistemaAgencia
             string argumentoEmCaixaAlta = _argumentos.ToUpper();    /*ToUpper: caixa alta*/
             nomeParametro = nomeParametro.ToUpper();
 
-
-
             string termo = nomeParametro + "=";
             int indiceTermo = argumentoEmCaixaAlta.IndexOf(termo);
 
