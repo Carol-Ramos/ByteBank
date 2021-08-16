@@ -14,6 +14,8 @@ namespace ByteBank.SistemaAgencia
     {
         public static void Main(string[] args)
         {
+                                       //Curso 6 conhecendo strings e substrings
+            
             //Olá, meu nome é Guilherme e você pode entrar em contato comigo
             //através do número 8457-4456!
 
@@ -22,22 +24,21 @@ namespace ByteBank.SistemaAgencia
             // "[0123456789][0123456789][0123456789][0123456789][-][0123456789][0123456789][0123456789][0123456789]";
             // "[0-9][0-9][0-9][0-9][-][0-9][0-9][0-9][0-9]";
             // "[0-9]{4}[-][0-9]{4}";         {{{{{ quatidade de vezes que o padrão se repete}}}}}
-            // "[0-9]{4,5}[-][0-9]{4}";
+            // "[0-9]{4,5}[-][0-9]{4}";--------------> 4,5 aceita 4 ou 5 números no telefone
             // "[0-9]{4,5}[-]{0,1}[0-9]{4}";
             // "[0-9]{4,5}-{0,1}[0-9]{4}";
+
             string padrao = "[0-9]{4,5}-?[0-9]{4}";
             string textoDeTeste = "Meu nome é Guilherme, me ligue em 8457-4457";
 
             Match resultado = Regex.Match(textoDeTeste, padrao);
             Console.WriteLine(resultado.Value);
-            
+
             //Console.WriteLine(Regex.IsMatch(textoDeTeste, padrao));
 
             Console.ReadLine();
 
             
-
-
 
             string urlTeste = "https://www.bytebank.com/cambio";
             int indiceByteBank = urlTeste.IndexOf("https://www.bytebank.com");
@@ -60,63 +61,63 @@ namespace ByteBank.SistemaAgencia
             //moedaOrigem = real & moedaDestino = dolar
 
 
-            //Testando ToLower
+                                                        //Testando ToLower
 
-            string mensagemOrigem = "PALAVRA";
-            string termoBusca = "ra";
+            //string mensagemOrigem = "PALAVRA";
+            //string termoBusca = "ra";
 
-            Console.WriteLine(mensagemOrigem.ToUpper());
-            Console.WriteLine(mensagemOrigem.ToLower());
+            //Console.WriteLine(mensagemOrigem.ToUpper());
+            //Console.WriteLine(mensagemOrigem.ToLower());
 
-            //Testando Replace
+            ////Testando Replace
 
-            termoBusca = termoBusca.Replace('r', 'R');
-            Console.WriteLine(termoBusca);
+            //termoBusca = termoBusca.Replace('r', 'R');
+            //Console.WriteLine(termoBusca);
 
-            termoBusca = termoBusca.Replace('a', 'A');
-            Console.WriteLine(termoBusca);
+            //termoBusca = termoBusca.Replace('a', 'A');
+            //Console.WriteLine(termoBusca);
 
-            Console.WriteLine(mensagemOrigem.IndexOf(termoBusca));
-            Console.ReadLine();
+            //Console.WriteLine(mensagemOrigem.IndexOf(termoBusca));
+            //Console.ReadLine();
 
-            string urlParametros = "https://www.bytebank.com/cambio?moedaOrigem=real&moedaDestino=dolar";
-            ExtratorValorDeArgumentosURL extratorDeValores = new ExtratorValorDeArgumentosURL(urlParametros);
-
-
-            string valor = extratorDeValores.GetValor("moedaDestino");
-            Console.WriteLine("Valor de moedaDestino: " + valor);
-
-            string valorMoedaOrigem = extratorDeValores.GetValor("moedaOrigem");
-            Console.WriteLine("Valor de moedaOrigem: " + valorMoedaOrigem);
-
-            Console.ReadLine();
-
-            //Testando o método Remove
-            string testeRemocao = "primeiraParte&parteParaRemover";
-            int indiceEComercial = testeRemocao.IndexOf('&');
-            Console.WriteLine(testeRemocao.Remove(indiceEComercial, 4));
-
-            Console.ReadLine();
+            //string urlParametros = "https://www.bytebank.com/cambio?moedaOrigem=real&moedaDestino=dolar";
+            //ExtratorValorDeArgumentosURL extratorDeValores = new ExtratorValorDeArgumentosURL(urlParametros);
 
 
-            string palavra = "moedaOrigem=IReadOnlyList&moedaDestino=dolar";
-            string nomeArgumento = "moedaDestino=";
+            //string valor = extratorDeValores.GetValor("moedaDestino");
+            //Console.WriteLine("Valor de moedaDestino: " + valor);
 
-            int indice = palavra.IndexOf(nomeArgumento);
+            //string valorMoedaOrigem = extratorDeValores.GetValor("moedaOrigem");
+            //Console.WriteLine("Valor de moedaOrigem: " + valorMoedaOrigem);
 
-            Console.WriteLine(indice);
+            //Console.ReadLine();
 
-            Console.WriteLine("Tamanho da string " + nomeArgumento.Length);
-            Console.WriteLine(palavra.Substring(indice));
-            Console.WriteLine(palavra.Substring(indice + nomeArgumento.Length));
+                                                ////Testando o método Remove
+            
+            //string testeRemocao = "primeiraParte&parteParaRemover";
+            //int indiceEComercial = testeRemocao.IndexOf('&');
+            //Console.WriteLine(testeRemocao.Remove(indiceEComercial, 4));
 
-            Console.ReadLine();
+            //Console.ReadLine();
+
+
+            //string palavra = "moedaOrigem=IReadOnlyList&moedaDestino=dolar";
+            //string nomeArgumento = "moedaDestino=";
+
+            //int indice = palavra.IndexOf(nomeArgumento);
+
+            //Console.WriteLine(indice);
+
+            //Console.WriteLine("Tamanho da string " + nomeArgumento.Length);
+            //Console.WriteLine(palavra.Substring(indice));
+            //Console.WriteLine(palavra.Substring(indice + nomeArgumento.Length));
+
+            //Console.ReadLine();
 
 
 
+                                                     //Testando o IsNullOrEmpty
 
-
-            //Testando o IsNullOrEmpty
             //string textoVazio = "";
             //string textoNulo = null;
             //string textoQualquer = "lkshfo";
@@ -138,11 +139,36 @@ namespace ByteBank.SistemaAgencia
             //string argumentos = url.Substring(indiceInterrogacao + 1);
             //Console.WriteLine(argumentos);
 
+            //Console.ReadLine();
+
+                                                //Curso 7: Arrays e tipos genéricos
+
+            //Array de inteiros com 5 posições
+
+            //int[] idades = new int[5];
+
+            //idades[0] = 15;
+            //idades[1] = 28;
+            //idades[2] = 35;
+            //idades[3] = 50;
+            //idades[4] = 28;
+
+            //Console.WriteLine(idades[4]);
 
 
+            ContaCorrente[] contas = new ContaCorrente[]
+               {
+                    new ContaCorrente(874, 5679787),
+                    new ContaCorrente(874, 4456668),
+                    new ContaCorrente(874, 7781438)
+               };
 
-
-
+            for (int indice = 0; indice < contas.Length; indice++)
+            {
+                ContaCorrente contaAtual = contas[indice];
+                Console.WriteLine($"Conta {indice} {contaAtual.Numero}");
+            }
+    
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine();
