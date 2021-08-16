@@ -28,29 +28,29 @@ namespace ByteBank.SistemaAgencia
             // "[0-9]{4,5}[-]{0,1}[0-9]{4}";
             // "[0-9]{4,5}-{0,1}[0-9]{4}";
 
-            string padrao = "[0-9]{4,5}-?[0-9]{4}";
-            string textoDeTeste = "Meu nome é Guilherme, me ligue em 8457-4457";
+            //string padrao = "[0-9]{4,5}-?[0-9]{4}";
+            //string textoDeTeste = "Meu nome é Guilherme, me ligue em 8457-4457";
 
-            Match resultado = Regex.Match(textoDeTeste, padrao);
-            Console.WriteLine(resultado.Value);
+            //Match resultado = Regex.Match(textoDeTeste, padrao);
+            //Console.WriteLine(resultado.Value);
 
-            //Console.WriteLine(Regex.IsMatch(textoDeTeste, padrao));
+            ////Console.WriteLine(Regex.IsMatch(textoDeTeste, padrao));
 
-            Console.ReadLine();
+            //Console.ReadLine();
 
             
 
-            string urlTeste = "https://www.bytebank.com/cambio";
-            int indiceByteBank = urlTeste.IndexOf("https://www.bytebank.com");
+            //string urlTeste = "https://www.bytebank.com/cambio";
+            //int indiceByteBank = urlTeste.IndexOf("https://www.bytebank.com");
 
-            urlTeste.StartsWith("https://www.bytebank.com");
-            urlTeste.EndsWith("https://www.bytebank.com");
+            //urlTeste.StartsWith("https://www.bytebank.com");
+            //urlTeste.EndsWith("https://www.bytebank.com");
 
-            Console.WriteLine(urlTeste.StartsWith("https://www.bytebank.com"));             /*StartWith: começa com*/
-            Console.WriteLine(urlTeste.EndsWith("cambio"));                                 /*EndsWith: termina com*/
-            Console.WriteLine(urlTeste.Contains("ByteBank"));                               /*Contains: contém*/
+            //Console.WriteLine(urlTeste.StartsWith("https://www.bytebank.com"));             /*StartWith: começa com*/
+            //Console.WriteLine(urlTeste.EndsWith("cambio"));                                 /*EndsWith: termina com*/
+            //Console.WriteLine(urlTeste.Contains("ByteBank"));                               /*Contains: contém*/
 
-            //Console.WriteLine(indiceByteBank == 0);
+            ////Console.WriteLine(indiceByteBank == 0);
 
             Console.ReadLine();
 
@@ -154,21 +154,46 @@ namespace ByteBank.SistemaAgencia
             //idades[4] = 28;
 
             //Console.WriteLine(idades[4]);
+             //---------------------Parte 1
 
+            //ContaCorrente[] contas = new ContaCorrente[]
+            //   {
+            //        new ContaCorrente(874, 5679787),
+            //        new ContaCorrente(874, 4456668),
+            //        new ContaCorrente(874, 7781438)
+            //   };
 
-            ContaCorrente[] contas = new ContaCorrente[]
-               {
-                    new ContaCorrente(874, 5679787),
-                    new ContaCorrente(874, 4456668),
-                    new ContaCorrente(874, 7781438)
-               };
+            //for (int indice = 0; indice < contas.Length; indice++)
+            //{
+            //    ContaCorrente contaAtual = contas[indice];
+            //    Console.WriteLine($"Conta {indice} {contaAtual.Numero}");
+            //}
 
-            for (int indice = 0; indice < contas.Length; indice++)
-            {
-                ContaCorrente contaAtual = contas[indice];
-                Console.WriteLine($"Conta {indice} {contaAtual.Numero}");
-            }
-    
+            //---------------- Parte 2- curso 7
+
+            ListaDeContaCorrente lista = new ListaDeContaCorrente();
+
+            ContaCorrente contaDoGui = new ContaCorrente(111, 2222222);
+
+            lista.Adicionar(contaDoGui);
+
+            lista.Adicionar(new ContaCorrente(874, 5678937));
+            lista.Adicionar(new ContaCorrente(874, 5678901));
+            lista.Adicionar(new ContaCorrente(874, 5678902));
+            lista.Adicionar(new ContaCorrente(874, 5678903));
+            lista.Adicionar(new ContaCorrente(874, 5678904));
+            lista.Adicionar(new ContaCorrente(874, 5678905));
+            lista.Adicionar(new ContaCorrente(874, 5678906));
+            lista.Adicionar(new ContaCorrente(874, 5678907));
+            lista.Adicionar(new ContaCorrente(874, 5678908));
+            lista.Adicionar(new ContaCorrente(874, 5678909));
+           
+
+            lista.EscreverNaTela();
+
+            lista.Remover(contaDoGui);
+            Console.WriteLine("Após remover o item.");
+
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine();
