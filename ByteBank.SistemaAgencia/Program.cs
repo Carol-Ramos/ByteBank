@@ -10,12 +10,12 @@ using Humanizer;
 
 namespace ByteBank.SistemaAgencia
 {
-    class Program
-    {
-        public static void Main(string[] args)
-        {
-                                       //Curso 6 conhecendo strings e substrings
-            
+    //class Program
+    //{
+    //    public static void Main(string[] args)
+    //    {
+    //        //Curso 6 conhecendo strings e substrings
+
             //Olá, meu nome é Guilherme e você pode entrar em contato comigo
             //através do número 8457-4456!
 
@@ -38,7 +38,7 @@ namespace ByteBank.SistemaAgencia
 
             //Console.ReadLine();
 
-            
+
 
             //string urlTeste = "https://www.bytebank.com/cambio";
             //int indiceByteBank = urlTeste.IndexOf("https://www.bytebank.com");
@@ -52,7 +52,7 @@ namespace ByteBank.SistemaAgencia
 
             ////Console.WriteLine(indiceByteBank == 0);
 
-            Console.ReadLine();
+            //Console.ReadLine();
 
 
             //pagina? argumentos
@@ -61,7 +61,7 @@ namespace ByteBank.SistemaAgencia
             //moedaOrigem = real & moedaDestino = dolar
 
 
-                                                        //Testando ToLower
+            //Testando ToLower
 
             //string mensagemOrigem = "PALAVRA";
             //string termoBusca = "ra";
@@ -92,8 +92,8 @@ namespace ByteBank.SistemaAgencia
 
             //Console.ReadLine();
 
-                                                ////Testando o método Remove
-            
+            ////Testando o método Remove
+
             //string testeRemocao = "primeiraParte&parteParaRemover";
             //int indiceEComercial = testeRemocao.IndexOf('&');
             //Console.WriteLine(testeRemocao.Remove(indiceEComercial, 4));
@@ -116,7 +116,7 @@ namespace ByteBank.SistemaAgencia
 
 
 
-                                                     //Testando o IsNullOrEmpty
+            //Testando o IsNullOrEmpty
 
             //string textoVazio = "";
             //string textoNulo = null;
@@ -141,7 +141,7 @@ namespace ByteBank.SistemaAgencia
 
             //Console.ReadLine();
 
-                                                //Curso 7: Arrays e tipos genéricos
+            //Curso 7: Arrays e tipos genéricos
 
             //Array de inteiros com 5 posições
 
@@ -154,7 +154,7 @@ namespace ByteBank.SistemaAgencia
             //idades[4] = 28;
 
             //Console.WriteLine(idades[4]);
-             //---------------------Parte 1
+            //---------------------Parte 1
 
             //ContaCorrente[] contas = new ContaCorrente[]
             //   {
@@ -171,38 +171,89 @@ namespace ByteBank.SistemaAgencia
 
             //---------------- Parte 2- curso 7
 
-            ListaDeContaCorrente lista = new ListaDeContaCorrente();
+    class Program
+    {
+        static void Main(string[] args)
+        {
 
-            ContaCorrente contaDoGui = new ContaCorrente(111, 2222222);
+            //Console.WriteLine(SomarVarios(1, 2, 3, 5, 2453, 45));
+            //Console.WriteLine(SomarVarios(1, 2, 45));
 
-            lista.Adicionar(contaDoGui);
+            //static int SomarVarios(params int[] numeros)
+            //{
+            //    int acumulador = 0;
+            //    foreach (int numero in numeros)
+            //    {
+            //        acumulador += numero;
+            //    }
+            //    return acumulador;
+            //}
 
-            lista.Adicionar(new ContaCorrente(874, 5678937));
-            lista.Adicionar(new ContaCorrente(874, 5678901));
-            lista.Adicionar(new ContaCorrente(874, 5678902));
-            lista.Adicionar(new ContaCorrente(874, 5678903));
-            lista.Adicionar(new ContaCorrente(874, 5678904));
-            lista.Adicionar(new ContaCorrente(874, 5678905));
-            lista.Adicionar(new ContaCorrente(874, 5678906));
-            lista.Adicionar(new ContaCorrente(874, 5678907));
-            lista.Adicionar(new ContaCorrente(874, 5678908));
-            lista.Adicionar(new ContaCorrente(874, 5678909));
-           
+            //static void TestaListaDeContaCorrente()
 
-            lista.EscreverNaTela();
+            ListaDeObject listaDeIdades = new ListaDeObject();
 
-            lista.Remover(contaDoGui);
-            Console.WriteLine("Após remover o item.");
+            listaDeIdades.Adicionar(10);
+            listaDeIdades.Adicionar(5);
+            listaDeIdades.Adicionar(4);
+            listaDeIdades.AdicionarVarios(16, 23, 60);
 
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine("Fim da execução, tecle enter para sair...");
-            Console.ReadLine();
+            for (int i = 0; i < listaDeIdades.Tamanho; i++)
+            {
+                int idade = (int)listaDeIdades[i];
+                Console.WriteLine($"Idade no indice{i}:{idade}");
+            }
+
+            //{
+            //    ListaDeContaCorrente lista = new ListaDeContaCorrente();
+
+            //    ContaCorrente contaDoGui = new ContaCorrente(333, 33333333);
+
+            //    ContaCorrente[] contas = new ContaCorrente[]
+            //    {
+            //    contaDoGui,
+            //    new ContaCorrente(111, 2222222),
+            //    new ContaCorrente(874, 5679754)
+
+            //    };
+
+            //    lista.AdicionarVarios(contas);
+            //    lista.AdicionarVarios
+            //        (
+            //        contaDoGui,
+            //        new ContaCorrente(874, 5679754),
+            //        new ContaCorrente(874, 5679754),
+            //        new ContaCorrente(874, 5679754),
+            //        new ContaCorrente(874, 5679754)
+            //       );
+
+            //    for (int i = 0; i < lista.Tamanho; i++)
+            //    {
+            //        ContaCorrente itemAtual = lista.GetItemIndice(i);
+            //        Console.WriteLine($"Item na posição {i} = Conta {itemAtual.Numero} / {itemAtual.Agencia} ");
+            //    }
+            //    Console.ReadLine();
+            //}
+
+            Lista<int> idades = new Lista<int>();
+            idades.Adicionar(5);
+            idades.AdicionarVarios(1, 5, 78);
+
+            int idadeSoma = 0;
+            for (int i = 0; i < idades.Tamanho; i++)
+            {
+                int idadeAtual = idades[i];
+            }
+
+
+            //lista.Remover(contaDoGui);
+            //Console.WriteLine("Após remover o item.");
+
+
+
 
         }
-
-
-
     }
+
 }
+
