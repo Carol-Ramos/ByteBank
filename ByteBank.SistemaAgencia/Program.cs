@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using ByteBank.Modelos;
 using ByteBank.Modelos.Funcionarios;
 using Humanizer;
+using ByteBank.SistemaAgencia.Extensoes;
+using ByteBank.SistemaAgencia.Comparadores;
 
 namespace ByteBank.SistemaAgencia
 {                       /*========================> Curso 8: List, Lambda e Linq <==========================*/
@@ -14,7 +16,22 @@ namespace ByteBank.SistemaAgencia
     {
         public static void Main(string[] args)
         {
-            List<int> idades = new List<int>();
+            var nomes = new List<string>()
+            {
+                "Wellington",
+                "Guilherme",
+                "Luana",
+                "Ana"
+            };
+
+            nomes.Sort();
+
+            foreach (var nome in nomes)
+            {
+                Console.WriteLine(nome);
+            }
+
+            var idades = new List<int>();
 
             idades.Add(1);      /*Add::::Adicionar*/
             idades.Add(5);
@@ -25,9 +42,9 @@ namespace ByteBank.SistemaAgencia
 
             ListExtensoes.AdicionarVarios(idades, 12, 21, 34, 425);
 
-            idades.AdicionarVarios(5, 28, 23, 78);
+            idades.AdicionarVarios(99, -1);
 
-
+            idades.Sort();
 
             idades.Remove(5);
 
@@ -35,6 +52,37 @@ namespace ByteBank.SistemaAgencia
             {
                 Console.WriteLine(idades[i]);
             }
+
+            var contas = new List<ContaCorrente>()
+            {
+                new ContaCorrente (342, 98763943),
+                new ContaCorrente (345, 98763957),
+                null,
+                new ContaCorrente (343, 1),
+                null,
+                null,
+                new ContaCorrente (375, 98763943),
+                null
+            };
+
+
+            //contas.Sort(); =====> Chamar a implementação dada em IComparable
+
+            //contas.Sort(new ComparadorContaCorrentePorAgencia());
+
+
+            var contasOrdenadas = contas
+                .Where(conta => conta != null)
+                .OrderBy(conta => conta.Numero);
+
+            foreach (var conta in contasOrdenadas)
+            {
+                if (conta != null)
+                {
+                    Console.WriteLine($"Conta número {conta.Numero}, ag {conta.Agencia}");
+                }
+            }
+
             Console.ReadLine();
         }
     }
@@ -92,15 +140,6 @@ namespace ByteBank.SistemaAgencia
 //        //Console.WriteLine(SomarVarios(1, 2, 3, 5, 2453, 45));
 //        //Console.WriteLine(SomarVarios(1, 2, 45));
 
-//        //static int SomarVarios(params int[] numeros)
-//        //{
-//        //    int acumulador = 0;
-//        //    foreach (int numero in numeros)
-//        //    {
-//        //        acumulador += numero;
-//        //    }
-//        //    return acumulador;
-//        //}
 
 //        //static void TestaListaDeContaCorrente()
 
@@ -157,6 +196,17 @@ namespace ByteBank.SistemaAgencia
 //            {
 //                int idadeAtual = idades[i];
 //            }
+
+//static int SomarVarios(params int[] numeros)
+//{
+//    int acumulador = 0;
+//    foreach (int numero in numeros)
+//    {
+//        acumulador += numero;
+//    }
+//    return acumulador;
+//}
+
 
 
 //            //lista.Remover(contaDoGui);
